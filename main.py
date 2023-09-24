@@ -44,6 +44,8 @@ def main():
 
             if boardstate.previous != []:
                 display.draw_previous(boardstate.previous[0], boardstate.previous[1])
+            coord = []
+            destination = []
         
         for e in pg.event.get():
             if e.type == pg.QUIT:
