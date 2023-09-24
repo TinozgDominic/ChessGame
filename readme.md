@@ -1,0 +1,1 @@
+Run main.py to enter the game
