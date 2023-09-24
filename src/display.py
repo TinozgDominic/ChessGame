@@ -2,7 +2,7 @@ import pygame as pg
 pg.init()
 
 class Display():
-    def __init__(self, width = 720, height = 900):
+    def __init__(self, width = 560, height = 700):
         self.width = width
         self. height = height
         self.dimension = (self.width, self. height)
