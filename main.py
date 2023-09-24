@@ -4,6 +4,9 @@ from src.computer import Computer
 
 from copy import deepcopy
 
+import os
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+
 import pygame as pg
 pg.init()
 
@@ -125,18 +128,19 @@ def main():
             elif e.type == pg.KEYDOWN:
                 key = e.key
                 if key == pg.K_z:
-                    undo_time = 2 if ("Player" in black + white and "Computer" in black + white) else 1
+                    undo_time = 2 if ("Player" in (black + white) and "Computer" in (black + white)) else 1
                     for u in range(undo_time):
                         if len(movelog) > 1:
-                            boardstate = deepcopy(movelog.pop(-1))
+                            movelog.pop(-1)
+                            boardstate = deepcopy(movelog[-1])
                         else:
                             boardstate = deepcopy(movelog[0])
-                        coord = []
-                        destination = []
-                        moveset = []
-                        display.draw_state(boardstate, white, black)
-                        if boardstate.previous != []:
-                            display.draw_previous(boardstate.previous[0], boardstate.previous[1])
+                    coord = []
+                    destination = []
+                    moveset = []
+                    display.draw_state(boardstate, white, black)
+                    if boardstate.previous != []:
+                        display.draw_previous(boardstate.previous[0], boardstate.previous[1])
                 elif key == pg.K_r:
                     boardstate = BoardState()
                     movelog = [deepcopy(boardstate)]
