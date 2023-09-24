@@ -157,6 +157,7 @@ def main():
                     destination = []
                     moveset = []
                     boardstate.flip_board()
+                    boardstate.get_occupied()
                     display.draw_state(boardstate, white, black)
                     if boardstate.previous != []:
                         display.draw_previous(boardstate.previous[0], boardstate.previous[1])
